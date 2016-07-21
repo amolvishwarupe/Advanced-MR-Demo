@@ -1,0 +1,35 @@
+1. What is the purpose of RecordReader in Hadoop?
+
+Mapper always understand key value pair, so RecordReader reads line by line from input split and convert it into key value pair for mapper.
+
+
+2. What happens if the number of reducers is 0?
+
+In this case the outputs of the map-tasks go directly to the FileSystem, into the output path set by setOutputPath(Path). The framework does not sort the map-outputs before writing them out to the FileSystem.
+
+3. What is meant by Map-side and Reduce-side join in Hadoop?
+Joins performed by Reducer can be treated as Reduce-side joins. Frameworks like Pig, Hive, or Cascading has support for performing joins.
+
+Before diving into the implementation let us understand the problem thoroughly. If we have two datasets, for example,
+one dataset having user ids, names and the other having the user activity over the application. In-order to find out which user
+have performed what activity on the application we might need to join these two datasets such as both user names and the user activity
+will be joined together.
+
+Join can be applied based on the dataset size if one dataset is very small to be distributed across the cluster then we can use
+Side Data Distribution technique.
+
+4. What is the significance of conf.setMapper class?
+
+sets the mapper class and all stuff related to map job as reading data generating ke-value
+
+5. Give an example scenario on the usage of counters.
+
+
+6. Elaborate some problems which can only be solved by MapReduce and cannot
+be solved by PIG?
+
+
+7. In what kind of scenarios, MR jobs will be more useful than PIG?
+
+
+8. What are combiners and when are these used in a MapReduce job?
